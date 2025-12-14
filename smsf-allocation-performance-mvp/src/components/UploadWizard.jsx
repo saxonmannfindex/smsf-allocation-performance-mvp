@@ -36,52 +36,47 @@ const STEPS = [
    Provides context and professional entry point before uploads begin
    ============================================================================ */
 function HeroSection({ hasAnyUpload }) {
-  // Fade out the detailed instructions once user starts uploading
   if (hasAnyUpload) return null;
 
   return (
-    <div className="mb-10">
+    <div className="mb-8">
       {/* Main Hero Card */}
-      <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 p-8 md:p-10 shadow-2xl">
-        {/* Subtle background pattern */}
+      <div className="relative overflow-hidden rounded-xl bg-[#1a1f2e] border border-slate-700/50 p-8 md:p-10">
+        {/* Subtle grid pattern overlay */}
         <div 
-          className="absolute inset-0 opacity-[0.03]"
+          className="absolute inset-0 opacity-[0.02]"
           style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+            backgroundImage: `linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)`,
+            backgroundSize: '32px 32px',
           }}
         />
         
-        {/* Accent line */}
-        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-emerald-500 via-teal-400 to-cyan-500" />
-        
         <div className="relative">
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 backdrop-blur-sm border border-white/10 mb-6">
-            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-            <span className="text-xs font-medium text-slate-300 tracking-wide uppercase">
-              Portfolio Analysis Tool
+          <div className="inline-flex items-center gap-2 mb-6">
+            <span className="text-[10px] font-semibold text-slate-400 tracking-[0.2em] uppercase">
+              Document Upload
             </span>
           </div>
           
           {/* Title */}
-          <h1 className="text-3xl md:text-4xl font-bold text-white mb-3 tracking-tight">
-            Investment Report Analyzer
+          <h1 className="text-2xl md:text-3xl font-semibold text-white mb-2 tracking-tight">
+            Portfolio Report Intake
           </h1>
           
           {/* Subtitle */}
-          <p className="text-slate-400 text-lg md:text-xl max-w-2xl leading-relaxed mb-8">
-            Upload your portfolio reports to generate consolidated analysis, 
-            performance metrics, and allocation insights.
+          <p className="text-slate-400 text-sm md:text-base max-w-xl leading-relaxed mb-8">
+            Upload your portfolio documents to generate consolidated analysis and performance metrics.
           </p>
           
           {/* Document Requirements */}
-          <div className="grid md:grid-cols-2 gap-4 mb-8">
+          <div className="grid md:grid-cols-2 gap-4">
             <DocumentRequirementCard
               number="1"
-              title="Asset Allocation Report"
-              description="Current holdings and investment breakdown by asset class"
+              title="Asset Allocation"
+              description="Current holdings breakdown by asset class"
               icon={
-                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z" />
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z" />
                 </svg>
@@ -90,33 +85,24 @@ function HeroSection({ hasAnyUpload }) {
             <DocumentRequirementCard
               number="2"
               title="Performance Report"
-              description="Time-weighted returns and investment movement history"
+              description="Time-weighted returns and movement history"
               icon={
-                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
                 </svg>
               }
             />
-          </div>
-          
-          {/* Arrow indicator pointing to upload area */}
-          <div className="flex items-center gap-3 text-slate-500">
-            <svg className="w-5 h-5 animate-bounce" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-            </svg>
-            <span className="text-sm font-medium">Begin by uploading your reports below</span>
           </div>
         </div>
       </div>
       
       {/* Disclaimer */}
       <div className="mt-4 flex items-start gap-2 px-1">
-        <svg className="w-4 h-4 text-amber-500 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+        <svg className="w-3.5 h-3.5 text-slate-500 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m0 0v2m0-2h2m-2 0H10m2-10V5m0 0V3m0 2h2m-2 0H10" />
         </svg>
-        <p className="text-xs text-slate-500 leading-relaxed">
-          <span className="font-semibold text-slate-600">Demo Environment</span> — This tool is for internal analysis and demonstration purposes only. 
-          Uploaded documents are processed locally and are not stored or transmitted externally.
+        <p className="text-[11px] text-slate-500 leading-relaxed">
+          Documents are processed locally and not stored externally.
         </p>
       </div>
     </div>
@@ -129,18 +115,18 @@ function HeroSection({ hasAnyUpload }) {
    ============================================================================ */
 function DocumentRequirementCard({ number, title, description, icon }) {
   return (
-    <div className="flex items-start gap-4 p-4 rounded-xl bg-white/5 border border-white/10 backdrop-blur-sm">
-      <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-gradient-to-br from-emerald-500/20 to-teal-500/20 border border-emerald-500/30 flex items-center justify-center text-emerald-400">
+    <div className="flex items-start gap-3 p-4 rounded-lg bg-slate-800/30 border border-slate-700/30">
+      <div className="flex-shrink-0 w-8 h-8 rounded-md bg-slate-700/50 flex items-center justify-center text-slate-400">
         {icon}
       </div>
       <div className="min-w-0">
-        <div className="flex items-center gap-2 mb-1">
-          <span className="text-[10px] font-bold text-emerald-400 bg-emerald-500/20 px-1.5 py-0.5 rounded uppercase tracking-wider">
+        <div className="flex items-center gap-2 mb-0.5">
+          <span className="text-[9px] font-semibold text-emerald-400/80 uppercase tracking-wider">
             Step {number}
           </span>
         </div>
-        <h3 className="font-semibold text-white text-sm mb-0.5">{title}</h3>
-        <p className="text-xs text-slate-400 leading-relaxed">{description}</p>
+        <h3 className="font-medium text-white text-sm mb-0.5">{title}</h3>
+        <p className="text-[11px] text-slate-500 leading-relaxed">{description}</p>
       </div>
     </div>
   );
@@ -156,19 +142,16 @@ function CompactHeader({ hasAnyUpload }) {
   return (
     <div className="mb-6 flex items-center justify-between">
       <div className="flex items-center gap-3">
-        <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-slate-800 to-slate-900 flex items-center justify-center shadow-lg">
-          <svg className="w-5 h-5 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <div className="w-9 h-9 rounded-lg bg-slate-800/80 border border-slate-700/50 flex items-center justify-center">
+          <svg className="w-4 h-4 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
           </svg>
         </div>
         <div>
-          <h2 className="font-semibold text-slate-900 text-lg">Investment Report Analyzer</h2>
-          <p className="text-xs text-slate-500">Upload both reports to generate analysis</p>
+          <h2 className="font-medium text-white text-base">Portfolio Report Intake</h2>
+          <p className="text-[11px] text-slate-500">Upload both reports to generate analysis</p>
         </div>
       </div>
-      <span className="text-[10px] font-medium text-amber-600 bg-amber-50 px-2 py-1 rounded-full border border-amber-200">
-        Demo
-      </span>
     </div>
   );
 }
@@ -261,27 +244,20 @@ export default function UploadWizard({ onComplete, onPartialData }) {
 
   const isComplete = parsedData.asset_allocation && parsedData.performance;
 
-  /* ============================================================================
-     UI-ONLY ADDITION: Check if any upload has started
-     Used to toggle between hero and compact header
-     ============================================================================ */
   const hasAnyUpload = uploadStatus.asset_allocation !== 'idle' || uploadStatus.performance !== 'idle';
 
   return (
-    /* ============================================================================
-       UI-ONLY CHANGE: Added max-width container and padding for better presentation
-       ============================================================================ */
     <div className="max-w-4xl mx-auto">
-      {/* UI-ONLY ADDITION: Hero section for empty state */}
+      {/* Hero section for empty state */}
       <HeroSection hasAnyUpload={hasAnyUpload} />
       
-      {/* UI-ONLY ADDITION: Compact header after uploads begin */}
+      {/* Compact header after uploads begin */}
       <CompactHeader hasAnyUpload={hasAnyUpload} />
 
-      <div className="space-y-8">
+      <div className="space-y-6">
         {/* Progress Indicator */}
-        <div className="flex items-center justify-center">
-          <div className="flex items-center gap-4">
+        <div className="flex items-center justify-center py-2">
+          <div className="flex items-center gap-3">
             {STEPS.map((step, index) => (
               <React.Fragment key={step.id}>
                 <StepIndicator
@@ -292,10 +268,10 @@ export default function UploadWizard({ onComplete, onPartialData }) {
                   onClick={() => setCurrentStep(step.id)}
                 />
                 {index < STEPS.length - 1 && (
-                  <div className={`w-16 h-0.5 rounded-full transition-colors duration-500 ${
+                  <div className={`w-12 md:w-20 h-[2px] rounded-full transition-all duration-500 ${
                     uploadStatus[STEPS[index].key] === 'success' 
-                      ? 'bg-emerald-400' 
-                      : 'bg-gray-200'
+                      ? 'bg-emerald-500' 
+                      : 'bg-slate-700'
                   }`} />
                 )}
               </React.Fragment>
@@ -304,7 +280,7 @@ export default function UploadWizard({ onComplete, onPartialData }) {
         </div>
 
         {/* Step Content */}
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid md:grid-cols-2 gap-4">
           {STEPS.map((step) => (
             <StepCard
               key={step.key}
@@ -321,14 +297,14 @@ export default function UploadWizard({ onComplete, onPartialData }) {
 
         {/* Completion Message */}
         {isComplete && (
-          <div className="text-center p-8 bg-gradient-to-br from-emerald-50 to-teal-50 rounded-2xl border border-emerald-200/60">
-            <div className="w-14 h-14 rounded-2xl bg-emerald-100 flex items-center justify-center mx-auto mb-4">
-              <svg className="w-7 h-7 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <div className="text-center p-6 bg-[#1a1f2e] rounded-xl border border-emerald-500/20">
+            <div className="w-12 h-12 rounded-full bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center mx-auto mb-3">
+              <svg className="w-5 h-5 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
               </svg>
             </div>
-            <p className="text-emerald-900 font-semibold text-lg">Both reports uploaded successfully!</p>
-            <p className="text-emerald-600 text-sm mt-1">Analysis is ready below.</p>
+            <p className="text-white font-medium text-sm">Reports Uploaded Successfully</p>
+            <p className="text-slate-400 text-xs mt-1">Analysis is ready below</p>
           </div>
         )}
       </div>
@@ -340,16 +316,14 @@ export default function UploadWizard({ onComplete, onPartialData }) {
  * Step indicator in the progress bar
  */
 function StepIndicator({ step, isActive, isComplete, hasError, onClick }) {
-  let containerClasses = 'bg-gray-100 text-gray-400 border-gray-200';
-  let ringClasses = '';
+  let containerClasses = 'bg-slate-800 text-slate-500 border-slate-700';
 
   if (isComplete) {
-    containerClasses = 'bg-emerald-500 text-white border-emerald-500 shadow-lg shadow-emerald-200/50';
+    containerClasses = 'bg-emerald-500/20 text-emerald-400 border-emerald-500/50';
   } else if (hasError) {
-    containerClasses = 'bg-red-500 text-white border-red-500 shadow-lg shadow-red-200/50';
+    containerClasses = 'bg-red-500/20 text-red-400 border-red-500/50';
   } else if (isActive) {
-    containerClasses = 'bg-blue-500 text-white border-blue-500 shadow-lg shadow-blue-200/50';
-    ringClasses = 'ring-4 ring-blue-100';
+    containerClasses = 'bg-slate-700 text-white border-slate-500';
   }
 
   return (
@@ -357,24 +331,24 @@ function StepIndicator({ step, isActive, isComplete, hasError, onClick }) {
       <button
         onClick={onClick}
         className={`
-          flex items-center justify-center w-12 h-12 rounded-xl border-2
-          ${containerClasses} ${ringClasses}
-          font-semibold text-sm transition-all duration-200 cursor-pointer
+          flex items-center justify-center w-10 h-10 rounded-lg border
+          ${containerClasses}
+          font-medium text-sm transition-all duration-200 cursor-pointer
           hover:scale-105 active:scale-95
         `}
       >
         {isComplete ? (
-          <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
           </svg>
         ) : (
           step.id
         )}
       </button>
-      <span className={`text-xs font-medium transition-colors ${
-        isActive || isComplete ? 'text-gray-700' : 'text-gray-400'
+      <span className={`text-[10px] font-medium tracking-wide transition-colors ${
+        isActive || isComplete ? 'text-slate-300' : 'text-slate-600'
       }`}>
-        {step.title.split(' ')[0]}
+        {step.key === 'asset_allocation' ? 'Allocation' : 'Performance'}
       </span>
     </div>
   );
@@ -385,40 +359,50 @@ function StepIndicator({ step, isActive, isComplete, hasError, onClick }) {
  */
 function StepCard({ step, status, error, isActive, parsedData, onFileUpload, onReset }) {
   const isComplete = status === 'success';
+  const isProcessing = status === 'processing';
+  const hasError = status === 'error';
   
   return (
     <div className={`
-      rounded-2xl border-2 transition-all duration-300 overflow-hidden
-      ${isActive && !isComplete ? 'border-blue-200 shadow-lg shadow-blue-50/50' : ''}
-      ${isComplete ? 'border-emerald-200 shadow-lg shadow-emerald-50/50' : ''}
-      ${!isActive && !isComplete ? 'border-gray-200/60' : ''}
+      rounded-xl border transition-all duration-300 overflow-hidden
+      ${isActive && !isComplete ? 'border-slate-600 bg-[#1a1f2e]' : ''}
+      ${isComplete ? 'border-emerald-500/30 bg-[#1a1f2e]' : ''}
+      ${hasError ? 'border-red-500/30 bg-[#1a1f2e]' : ''}
+      ${!isActive && !isComplete && !hasError ? 'border-slate-700/50 bg-[#141820]' : ''}
     `}>
       {/* Card Header */}
       <div className={`
-        px-5 py-4 border-b flex items-center justify-between transition-colors
-        ${isComplete ? 'bg-gradient-to-r from-emerald-50 to-teal-50 border-emerald-100' : 'bg-gradient-to-r from-slate-50 to-white border-gray-100'}
+        px-4 py-3 border-b flex items-center justify-between transition-colors
+        ${isComplete ? 'bg-emerald-500/5 border-emerald-500/20' : 'bg-slate-800/30 border-slate-700/50'}
       `}>
         <div className="flex items-center gap-3">
           <div className={`
-            w-10 h-10 rounded-xl flex items-center justify-center
-            ${isComplete ? 'bg-emerald-100' : 'bg-gray-100'}
+            w-8 h-8 rounded-md flex items-center justify-center
+            ${isComplete ? 'bg-emerald-500/20' : 'bg-slate-700/50'}
           `}>
-            <svg className={`w-5 h-5 ${isComplete ? 'text-emerald-600' : 'text-gray-400'}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-            </svg>
+            {step.key === 'asset_allocation' ? (
+              <svg className={`w-4 h-4 ${isComplete ? 'text-emerald-400' : 'text-slate-400'}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z" />
+              </svg>
+            ) : (
+              <svg className={`w-4 h-4 ${isComplete ? 'text-emerald-400' : 'text-slate-400'}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+              </svg>
+            )}
           </div>
           <div>
-            <h3 className="font-semibold text-gray-900 text-sm">{step.title}</h3>
-            <p className="text-xs text-gray-500">{step.description}</p>
+            <h3 className="font-medium text-white text-sm">{step.title}</h3>
+            <p className="text-[10px] text-slate-500 uppercase tracking-wider">{step.description}</p>
           </div>
         </div>
         {isComplete && (
           <button
             onClick={onReset}
-            className="p-2 text-gray-400 hover:text-gray-600 hover:bg-white/50 rounded-lg transition-colors"
+            className="p-1.5 text-slate-500 hover:text-slate-300 hover:bg-slate-700/50 rounded-md transition-colors"
             title="Upload different file"
           >
-            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
             </svg>
           </button>
@@ -426,7 +410,7 @@ function StepCard({ step, status, error, isActive, parsedData, onFileUpload, onR
       </div>
       
       {/* Upload Zone */}
-      <div className="p-5 bg-white">
+      <div className="p-4">
         <DropZone
           onFileSelect={onFileUpload}
           status={status}
@@ -461,16 +445,16 @@ function ParsedDataPreview({ type, data }) {
 
   if (type === 'asset_allocation' && data) {
     return (
-      <div className="mt-4 p-4 bg-gradient-to-r from-slate-50 to-gray-50 rounded-xl border border-gray-100">
-        <div className="flex items-center gap-2 text-emerald-600 mb-3">
-          <div className="w-5 h-5 rounded-md bg-emerald-100 flex items-center justify-center">
-            <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <div className="mt-4 p-3 bg-slate-800/30 rounded-lg border border-slate-700/30">
+        <div className="flex items-center gap-2 text-emerald-400 mb-3">
+          <div className="w-4 h-4 rounded bg-emerald-500/20 flex items-center justify-center">
+            <svg className="w-2.5 h-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
             </svg>
           </div>
-          <span className="font-medium text-sm">Extracted Data</span>
+          <span className="font-medium text-xs">Extracted Data</span>
         </div>
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-2 gap-3">
           <DataItem label="Asset Classes" value={data.assetClasses?.length || 0} />
           <DataItem label="Holdings" value={data.holdings?.length || 0} />
           <DataItem label="Total Value" value={formatCurrency(data.totalValue)} highlight />
@@ -482,16 +466,16 @@ function ParsedDataPreview({ type, data }) {
   
   if (type === 'performance' && data) {
     return (
-      <div className="mt-4 p-4 bg-gradient-to-r from-slate-50 to-gray-50 rounded-xl border border-gray-100">
-        <div className="flex items-center gap-2 text-emerald-600 mb-3">
-          <div className="w-5 h-5 rounded-md bg-emerald-100 flex items-center justify-center">
-            <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <div className="mt-4 p-3 bg-slate-800/30 rounded-lg border border-slate-700/30">
+        <div className="flex items-center gap-2 text-emerald-400 mb-3">
+          <div className="w-4 h-4 rounded bg-emerald-500/20 flex items-center justify-center">
+            <svg className="w-2.5 h-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
             </svg>
           </div>
-          <span className="font-medium text-sm">Extracted Data</span>
+          <span className="font-medium text-xs">Extracted Data</span>
         </div>
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-2 gap-3">
           <DataItem 
             label="Period" 
             value={`${data.period?.from || 'N/A'} — ${data.period?.to || 'N/A'}`} 
@@ -525,8 +509,8 @@ function ParsedDataPreview({ type, data }) {
 function DataItem({ label, value, highlight, fullWidth }) {
   return (
     <div className={fullWidth ? 'col-span-2' : ''}>
-      <p className="text-xs text-gray-400 uppercase tracking-wider mb-1">{label}</p>
-      <p className={`text-sm font-semibold tabular-nums ${highlight ? 'text-emerald-700' : 'text-gray-900'}`}>
+      <p className="text-[9px] text-slate-500 uppercase tracking-wider mb-0.5">{label}</p>
+      <p className={`text-xs font-medium tabular-nums ${highlight ? 'text-emerald-400' : 'text-white'}`}>
         {value}
       </p>
     </div>
